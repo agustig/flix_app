@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flix_app/firebase_options.dart';
+import 'package:flix_app/presentation/pages/login_page/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -17,12 +18,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
+    return const MaterialApp(home: LoginPage()
+        // Scaffold(
+        //   body: Center(
+        //     child: Text('Hello World!'),
+        //   ),
+        // ),
+        );
   }
 }
