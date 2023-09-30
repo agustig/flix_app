@@ -1,5 +1,5 @@
-import 'package:flix_app/data/dummies/dummy_auth_repository.dart';
-import 'package:flix_app/data/dummies/dummy_user_repository.dart';
+import 'package:flix_app/data/firebase/firebase_auth_repository.dart';
+import 'package:flix_app/data/firebase/firebase_user_repository.dart';
 import 'package:flix_app/domain/usecases/login/login.dart';
 import 'package:flix_app/presentation/pages/main_page/main_page.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +15,16 @@ class LoginPage extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () {
             final login = Login(
-              authRepository: DummyAuthRepository(),
-              userRepository: DummyUserRepository(),
+              authRepository: FirebaseAuthRepository(),
+              userRepository: FirebaseUserRepository(),
             );
 
-            login(LoginParams(email: 'email', password: 'password'))
-                .then((result) {
+            login(
+              LoginParams(
+                email: 'jennie.kim@blackpink.com',
+                password: '123456',
+              ),
+            ).then((result) {
               if (result.isSuccess) {
                 Navigator.push(
                   context,
