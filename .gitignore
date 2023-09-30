@@ -38,7 +38,7 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
-# Freezed generator related
+# Freezed & Riverpod generator related
 *.freezed.dart
 *.g.dart
 
