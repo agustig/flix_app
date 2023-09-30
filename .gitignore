@@ -9,6 +9,7 @@
 .history
 .svn/
 migrate_working_dir/
+.env
 
 # IntelliJ related
 *.iml
@@ -38,7 +39,7 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
-# Freezed & Riverpod generator related
+# Freezed, Riverpod, or other generator related
 *.freezed.dart
 *.g.dart
 
