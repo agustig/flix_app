@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "793863881738",
+    "project_id": "flix-app-21b99",
+    "storage_bucket": "flix-app-21b99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:793863881738:android:7e687f0f2260bf962ecbf3",
+        "android_client_info": {
+          "package_name": "dev.agustig.flix_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkIzUcvjItnR8ePunKRzE-A4qE6-tLVA0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
