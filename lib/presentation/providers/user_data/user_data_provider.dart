@@ -35,7 +35,7 @@ class UserData extends _$UserData {
     state = const AsyncLoading();
 
     final login = ref.read(loginUsecaseProvider);
-    final result = login(LoginParams(email: email, password: password));
+    final result = await login(LoginParams(email: email, password: password));
 
     switch (result) {
       case Success(value: final user):
@@ -56,7 +56,7 @@ class UserData extends _$UserData {
     state = const AsyncLoading();
 
     final register = ref.read(registerUsecaseProvider);
-    final result = register(RegisterParams(
+    final result = await register(RegisterParams(
       name: name,
       email: email,
       password: password,
