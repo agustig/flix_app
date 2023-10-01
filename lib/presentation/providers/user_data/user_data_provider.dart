@@ -8,6 +8,7 @@ import 'package:flix_app/domain/usecases/top_up/top_up.dart';
 import 'package:flix_app/domain/usecases/upload_profile_picture/upload_profile_picture.dart';
 import 'package:flix_app/presentation/providers/movie/get_now_playing_provider.dart';
 import 'package:flix_app/presentation/providers/movie/get_upcoming_provider.dart';
+import 'package:flix_app/presentation/providers/transaction_data/transaction_data_provider.dart';
 import 'package:flix_app/presentation/providers/usecases/usecases_provider.dart';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -109,7 +110,7 @@ class UserData extends _$UserData {
       final result = await topUp(TopUpParams(amount: amount, uid: userId));
       if (result.isSuccess) {
         refreshUserData();
-        // TODO: Refresh transaction data
+        ref.read(transactionDataProvider.notifier).refreshTransactionData();
       }
     }
   }
