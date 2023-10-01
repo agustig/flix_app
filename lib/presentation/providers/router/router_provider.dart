@@ -1,5 +1,6 @@
 import 'package:flix_app/presentation/pages/login_page/login_page.dart';
 import 'package:flix_app/presentation/pages/main_page/main_page.dart';
+import 'package:flix_app/presentation/pages/register_page/register_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -17,6 +18,11 @@ Raw<GoRouter> router(RouterRef ref) => GoRouter(
           path: '/login',
           name: 'login',
           builder: (context, state) => LoginPage(),
+        ),
+        GoRoute(
+          path: '/register',
+          name: 'register',
+          builder: (context, state) => const RegisterPage(),
         ),
       ],
       initialLocation: '/login',
