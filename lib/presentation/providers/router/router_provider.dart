@@ -16,7 +16,7 @@ Raw<GoRouter> router(RouterRef ref) => GoRouter(
         GoRoute(
           path: '/login',
           name: 'login',
-          builder: (context, state) => const LoginPage(),
+          builder: (context, state) => LoginPage(),
         ),
       ],
       initialLocation: '/login',
