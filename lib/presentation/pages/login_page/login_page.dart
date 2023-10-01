@@ -1,6 +1,6 @@
 import 'package:flix_app/domain/usecases/login/login.dart';
 import 'package:flix_app/presentation/pages/main_page/main_page.dart';
-import 'package:flix_app/presentation/providers/usecases_provider.dart';
+import 'package:flix_app/presentation/providers/usecases/usecases_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,7 +14,7 @@ class LoginPage extends ConsumerWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            final login = ref.watch(loginProvider);
+            final login = ref.watch(loginUsecaseProvider);
 
             login(
               LoginParams(

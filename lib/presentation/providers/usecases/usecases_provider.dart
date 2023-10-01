@@ -10,67 +10,70 @@ import 'package:flix_app/domain/usecases/logout/logout.dart';
 import 'package:flix_app/domain/usecases/register/register.dart';
 import 'package:flix_app/domain/usecases/top_up/top_up.dart';
 import 'package:flix_app/domain/usecases/upload_profile_picture/upload_profile_picture.dart';
-import 'package:flix_app/presentation/providers/repositories_provider.dart';
+import 'package:flix_app/presentation/providers/repositories/repositories_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'usecases_provider.g.dart';
 
 // Authentication Usecase
 @riverpod
-Login login(LoginRef ref) => Login(
+Login loginUsecase(LoginUsecaseRef ref) => Login(
       authRepository: ref.watch(authRepositoryProvider),
       userRepository: ref.watch(userRepositoryProvider),
     );
 
 @riverpod
-Logout logout(LogoutRef ref) =>
+Logout logoutUsecase(LogoutUsecaseRef ref) =>
     Logout(authRepository: ref.watch(authRepositoryProvider));
 
 @riverpod
-Register register(RegisterRef ref) => Register(
+Register registerUsecase(RegisterUsecaseRef ref) => Register(
       authRepository: ref.watch(authRepositoryProvider),
       userRepository: ref.watch(userRepositoryProvider),
     );
 
 @riverpod
-GetLoggedInUser getLoggedInUser(GetLoggedInUserRef ref) => GetLoggedInUser(
+GetLoggedInUser getLoggedInUserUsecase(GetLoggedInUserUsecaseRef ref) =>
+    GetLoggedInUser(
       authRepository: ref.watch(authRepositoryProvider),
       userRepository: ref.watch(userRepositoryProvider),
     );
 
 // Movie Usecase
 @riverpod
-GetMovieList getMovieList(GetMovieListRef ref) =>
+GetMovieList getMovieListUsecase(GetMovieListUsecaseRef ref) =>
     GetMovieList(movieRepository: ref.watch(movieRepositoryProvider));
 
 @riverpod
-GetMovieDetail getMovieDetail(GetMovieDetailRef ref) =>
+GetMovieDetail getMovieDetailUsecase(GetMovieDetailUsecaseRef ref) =>
     GetMovieDetail(movieRepository: ref.watch(movieRepositoryProvider));
 
 @riverpod
-GetActors getActors(GetActorsRef ref) =>
+GetActors getActorsUsecase(GetActorsUsecaseRef ref) =>
     GetActors(movieRepository: ref.watch(movieRepositoryProvider));
 
 // Transaction Usecase
 @riverpod
-CreateTransaction createTransaction(CreateTransactionRef ref) =>
+CreateTransaction createTransactionUsecase(CreateTransactionUsecaseRef ref) =>
     CreateTransaction(
       transactionRepository: ref.watch(transactionRepositoryProvider),
     );
 
 @riverpod
-GetTransactions getTransactions(GetTransactionsRef ref) => GetTransactions(
-    transactionRepository: ref.watch(transactionRepositoryProvider));
+GetTransactions getTransactionsUsecase(GetTransactionsUsecaseRef ref) =>
+    GetTransactions(
+        transactionRepository: ref.watch(transactionRepositoryProvider));
 
 @riverpod
-TopUp topUp(TopUpRef ref) =>
+TopUp topUpUsecase(TopUpUsecaseRef ref) =>
     TopUp(transactionRepository: ref.watch(transactionRepositoryProvider));
 
 // User Usecase
 @riverpod
-GetUserBalance getUserBalance(GetUserBalanceRef ref) =>
+GetUserBalance getUserBalanceUsecase(GetUserBalanceUsecaseRef ref) =>
     GetUserBalance(userRepository: ref.watch(userRepositoryProvider));
 
 @riverpod
-UploadProfilePicture uploadProfilePicture(UploadProfilePictureRef ref) =>
+UploadProfilePicture uploadProfilePictureUsecase(
+        UploadProfilePictureUsecaseRef ref) =>
     UploadProfilePicture(userRepository: ref.watch(userRepositoryProvider));
