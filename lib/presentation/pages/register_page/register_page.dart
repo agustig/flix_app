@@ -6,19 +6,24 @@ import 'package:flix_app/presentation/widgets/flix_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LoginPage extends ConsumerWidget {
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-
-  LoginPage({super.key});
+class RegisterPage extends ConsumerStatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen(userDataProvider, (previous, next) {
-      if (next is AsyncData) {
-        if (next.value != null) {
-          ref.read(routerProvider).goNamed('main');
-        }
+  ConsumerState<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends ConsumerState<RegisterPage> {
+  final nameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final passwordConfirmationController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    ref.listen(userDataProvider, (prev, next) {
+      if (next is AsyncData && next.value != null) {
+        ref.read(routerProvider).goNamed('main');
       } else if (next is AsyncError) {
         context.showSnackBar(next.error.toString());
       }
@@ -33,34 +38,25 @@ class LoginPage extends ConsumerWidget {
               width: 150,
             ),
           ),
-          verticalSpaces(100),
+          verticalSpaces(50),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
             child: Column(
               children: [
-                FlixTextField(
-                  labelText: 'Email',
-                  controller: _emailController,
-                ),
+                FlixTextField(labelText: 'Name', controller: nameController),
+                verticalSpaces(24),
+                FlixTextField(labelText: 'Email', controller: emailController),
                 verticalSpaces(24),
                 FlixTextField(
                   labelText: 'Password',
-                  controller: _passwordController,
+                  controller: passwordController,
                   obscureText: true,
                 ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    onPressed: () {
-                      // TODO: add forgot password function
-                    },
-                    child: const Text(
-                      'Forgot password',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
+                verticalSpaces(24),
+                FlixTextField(
+                  labelText: 'Password confirmation',
+                  controller: passwordConfirmationController,
+                  obscureText: true,
                 ),
                 verticalSpaces(24),
                 switch (ref.watch(userDataProvider)) {
@@ -69,13 +65,20 @@ class LoginPage extends ConsumerWidget {
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: () {
-                              ref.read(userDataProvider.notifier).login(
-                                    email: _emailController.text,
-                                    password: _passwordController.text,
-                                  );
+                              if (passwordController.text ==
+                                  passwordConfirmationController.text) {
+                                ref.read(userDataProvider.notifier).register(
+                                      name: nameController.text,
+                                      email: emailController.text,
+                                      password: passwordController.text,
+                                    );
+                              } else {
+                                context.showSnackBar(
+                                    'Please retype password with the same value');
+                              }
                             },
                             child: const Text(
-                              'Login',
+                              'Register',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                               ),
@@ -91,22 +94,32 @@ class LoginPage extends ConsumerWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Don't have an account? "),
+                    const Text('Already have and account? '),
                     TextButton(
                       onPressed: () =>
-                          ref.read(routerProvider).goNamed('register'),
+                          ref.read(routerProvider).goNamed('login'),
                       child: const Text(
-                        'Register here',
+                        'Login here',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     )
                   ],
-                )
+                ),
+                verticalSpaces(24),
               ],
             ),
           ),
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    passwordConfirmationController.dispose();
+    super.dispose();
   }
 }
