@@ -4,6 +4,7 @@ import 'package:flix_app/presentation/misc/constants.dart';
 import 'package:flix_app/presentation/misc/methods.dart';
 import 'package:flix_app/presentation/providers/movie/get_now_playing_provider.dart';
 import 'package:flix_app/presentation/providers/movie/get_upcoming_provider.dart';
+import 'package:flix_app/presentation/providers/router/router_provider.dart';
 import 'package:flix_app/presentation/providers/user_data/user_data_provider.dart';
 import 'package:flix_app/presentation/widgets/network_image_card.dart';
 import 'package:flutter/material.dart';
@@ -29,12 +30,11 @@ class MoviePage extends ConsumerWidget {
         searchBar(context),
         verticalSpaces(24),
         ...movieList(
-          title: 'Now Playing',
-          movies: ref.watch(getNowPlayingProvider),
-          onTap: (movie) {
-            //TODO: Move to movie detail page
-          },
-        ),
+            title: 'Now Playing',
+            movies: ref.watch(getNowPlayingProvider),
+            onTap: (movie) {
+              ref.read(routerProvider).pushNamed('detail', extra: movie);
+            }),
         verticalSpaces(30),
         ...promotionList(_promotionImageFileNames),
         verticalSpaces(30),

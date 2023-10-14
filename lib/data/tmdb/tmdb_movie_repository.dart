@@ -35,7 +35,7 @@ class TmdbMovieRepository implements MovieRepository {
   Future<Result<MovieDetail>> getDetail({required int id}) async {
     try {
       final response = await _dio.get(
-        'https://api.themoviedb.org/3/movie/$id/language=en-US',
+        'https://api.themoviedb.org/3/movie/$id?language=en-US',
         options: _options,
       );
 
