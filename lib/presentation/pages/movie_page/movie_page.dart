@@ -1,5 +1,5 @@
 import 'package:flix_app/domain/entities/movie.dart';
-import 'package:flix_app/presentation/extensions/int_extension.dart';
+import 'package:flix_app/presentation/extensions/double_extension.dart';
 import 'package:flix_app/presentation/misc/constants.dart';
 import 'package:flix_app/presentation/misc/methods.dart';
 import 'package:flix_app/presentation/providers/movie/get_now_playing_provider.dart';

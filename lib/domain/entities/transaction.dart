@@ -15,9 +15,9 @@ class Transaction with _$Transaction {
     String? theaterName,
     int? watchingTime,
     int? ticketAmount,
-    int? ticketPrice,
-    required int adminFee,
-    required int total,
+    double? ticketPrice,
+    required double adminFee,
+    required double total,
   }) = _Transaction;
 
   factory Transaction.fromJson(Map<String, dynamic> json) =>

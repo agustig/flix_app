@@ -17,7 +17,7 @@ class SupabaseUserRepository implements UserRepository {
     required String email,
     required String name,
     String? photoUrl,
-    int balance = 0,
+    double balance = 0,
   }) async {
     final newData = {
       'uid': uid,
@@ -48,7 +48,7 @@ class SupabaseUserRepository implements UserRepository {
   }
 
   @override
-  Future<Result<int>> getUserBalance({required String uid}) async {
+  Future<Result<double>> getUserBalance({required String uid}) async {
     final result = await _supabaseClient
         .from('users')
         .select<PostgrestList>('balance')
@@ -86,7 +86,7 @@ class SupabaseUserRepository implements UserRepository {
   @override
   Future<Result<User>> updateUserBalance({
     required String uid,
-    required int balance,
+    required double balance,
   }) async {
     final result = await _supabaseClient
         .from('users')

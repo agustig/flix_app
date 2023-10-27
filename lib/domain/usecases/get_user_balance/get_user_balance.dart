@@ -4,13 +4,13 @@ import 'package:flix_app/domain/usecases/usecase.dart';
 
 part 'get_user_balance_params.dart';
 
-class GetUserBalance implements Usecase<Result<int>, GetUserBalanceParams> {
+class GetUserBalance implements Usecase<Result<double>, GetUserBalanceParams> {
   final UserRepository _userRepository;
 
   GetUserBalance({required UserRepository userRepository})
       : _userRepository = userRepository;
 
   @override
-  Future<Result<int>> call(GetUserBalanceParams params) =>
+  Future<Result<double>> call(GetUserBalanceParams params) =>
       _userRepository.getUserBalance(uid: params.uid);
 }

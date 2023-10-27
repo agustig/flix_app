@@ -10,7 +10,7 @@ class User with _$User {
     required String email,
     required String name,
     String? photoUrl,
-    @Default(0) int balance,
+    @Default(0) double balance,
   }) = _User;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);

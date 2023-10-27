@@ -102,7 +102,7 @@ class UserData extends _$UserData {
     }
   }
 
-  Future<void> topUp(int amount) async {
+  Future<void> topUp(double amount) async {
     final topUp = ref.read(topUpUsecaseProvider);
     final String? userId = state.valueOrNull?.uid;
 

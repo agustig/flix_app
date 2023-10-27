@@ -9,18 +9,18 @@ abstract interface class UserRepository {
     required String email,
     required String name,
     String? photoUrl,
-    int balance = 0,
+    double balance = 0,
   });
 
   Future<Result<User>> getUser({required String uid});
 
   Future<Result<User>> updateUser({required User user});
 
-  Future<Result<int>> getUserBalance({required String uid});
+  Future<Result<double>> getUserBalance({required String uid});
 
   Future<Result<User>> updateUserBalance({
     required String uid,
-    required int balance,
+    required double balance,
   });
 
   Future<Result<User>> uploadProfilePicture({

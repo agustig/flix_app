@@ -11,7 +11,7 @@ class DummyUserRepository implements UserRepository {
       required String email,
       required String name,
       String? photoUrl,
-      int balance = 0}) {
+      double balance = 0}) {
     // TODO: implement createUser
     throw UnimplementedError();
   }
@@ -27,7 +27,7 @@ class DummyUserRepository implements UserRepository {
   }
 
   @override
-  Future<Result<int>> getUserBalance({required String uid}) {
+  Future<Result<double>> getUserBalance({required String uid}) {
     // TODO: implement getUserBalance
     throw UnimplementedError();
   }
@@ -40,7 +40,7 @@ class DummyUserRepository implements UserRepository {
 
   @override
   Future<Result<User>> updateUserBalance(
-      {required String uid, required int balance}) {
+      {required String uid, required double balance}) {
     // TODO: implement updateUserBalance
     throw UnimplementedError();
   }

@@ -19,7 +19,7 @@ class FirebaseUserRepository implements UserRepository {
     required String email,
     required String name,
     String? photoUrl,
-    int balance = 0,
+    double balance = 0,
   }) async {
     try {
       final users = _firebaseFirestore.collection('users');
@@ -56,7 +56,7 @@ class FirebaseUserRepository implements UserRepository {
   }
 
   @override
-  Future<Result<int>> getUserBalance({required String uid}) async {
+  Future<Result<double>> getUserBalance({required String uid}) async {
     final documentReference = _firebaseFirestore.doc('users/$uid');
     final result = await documentReference.get();
 
@@ -92,7 +92,7 @@ class FirebaseUserRepository implements UserRepository {
   @override
   Future<Result<User>> updateUserBalance({
     required String uid,
-    required int balance,
+    required double balance,
   }) async {
     final documentReference = _firebaseFirestore.doc('users/$uid');
     final result = await documentReference.get();
