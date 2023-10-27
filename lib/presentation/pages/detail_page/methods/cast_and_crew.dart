@@ -30,7 +30,7 @@ List<Widget> castAndCrew(Movie movie, WidgetRef ref) => [
                                     width: 100,
                                     height: 152,
                                     imageUrl:
-                                        '$tmdbProfileImageUrl/${actor.profilePath}',
+                                        '$tmdbProfileImageUrl${actor.profilePath}',
                                     fit: BoxFit.cover,
                                   ),
                                   SizedBox(

@@ -56,7 +56,7 @@ class DetailPage extends ConsumerWidget {
                                         0.6,
                                     borderRadius: 15,
                                     imageUrl:
-                                        '$tmdbImageUrl/${movieDetail.backdropPath ?? movie.posterPath}',
+                                        '$tmdbImageUrl${movieDetail.backdropPath ?? movie.posterPath}',
                                     fit: BoxFit.cover,
                                   ),
                                   verticalSpaces(24),
@@ -89,7 +89,15 @@ class DetailPage extends ConsumerWidget {
                         horizontal: 24,
                       ),
                       child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          final movieDetail = asyncMovieDetail.valueOrNull;
+
+                          if (movieDetail != null) {
+                            ref
+                                .read(routerProvider)
+                                .pushNamed('time-booking', extra: movieDetail);
+                          }
+                        },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: backgroundColor,
                           backgroundColor: saffron,

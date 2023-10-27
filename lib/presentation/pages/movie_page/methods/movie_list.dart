@@ -30,7 +30,7 @@ List<Widget> movieList({
                           right: movie == movies.last ? 24 : 0,
                         ),
                         child: NetworkImageCard(
-                          imageUrl: '$tmdbImageUrl/${movie.posterPath}',
+                          imageUrl: '$tmdbImageUrl${movie.posterPath}',
                           fit: BoxFit.contain,
                           onTap: () => onTap?.call(movie),
                         ),

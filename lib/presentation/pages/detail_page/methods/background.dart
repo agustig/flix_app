@@ -2,7 +2,7 @@ part of '../detail_page.dart';
 
 List<Widget> background(Movie movie) => [
       Image.network(
-        '$tmdbImageUrl/${movie.posterPath}',
+        '$tmdbImageUrl${movie.posterPath}',
         fit: BoxFit.cover,
         height: double.infinity,
         width: double.infinity,
