@@ -44,9 +44,7 @@ Widget userInfo(WidgetRef ref) => Padding(
               ),
               verticalSpaces(5),
               GestureDetector(
-                onTap: () {
-                  // TODO: make route to wallet page
-                },
+                onTap: () => ref.read(routerProvider).pushNamed('wallet'),
                 child: Row(
                   children: [
                     SizedBox(
