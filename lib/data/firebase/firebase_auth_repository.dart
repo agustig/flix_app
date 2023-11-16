@@ -23,7 +23,7 @@ class FirebaseAuthRepository implements AuthRepository {
       );
       return Result.success(userCredential.user!.uid);
     } on firebase_auth.FirebaseAuthException catch (e) {
-      return Result.failed(e.message!);
+      return Result.failed(e.code);
     }
   }
 
@@ -50,7 +50,7 @@ class FirebaseAuthRepository implements AuthRepository {
 
       return Result.success(userCredential.user!.uid);
     } on firebase_auth.FirebaseException catch (e) {
-      return Result.failed('${e.message}');
+      return Result.failed(e.code);
     }
   }
 }
