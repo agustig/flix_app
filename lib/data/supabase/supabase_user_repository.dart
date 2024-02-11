@@ -26,20 +26,14 @@ class SupabaseUserRepository implements UserRepository {
       'photoUrl': photoUrl,
       'balance': balance,
     };
-    final result = await _supabaseClient
-        .from('users')
-        .insert(newData)
-        .select<PostgrestList>();
+    final result = await _supabaseClient.from('users').insert(newData).select();
 
     return Result.success(User.fromJson(result.first));
   }
 
   @override
   Future<Result<User>> getUser({required String uid}) async {
-    final result = await _supabaseClient
-        .from('users')
-        .select<PostgrestList>()
-        .eq('uid', uid);
+    final result = await _supabaseClient.from('users').select().eq('uid', uid);
     if (result.isNotEmpty) {
       return Result.success(User.fromJson(result.first));
     } else {
@@ -49,10 +43,8 @@ class SupabaseUserRepository implements UserRepository {
 
   @override
   Future<Result<double>> getUserBalance({required String uid}) async {
-    final result = await _supabaseClient
-        .from('users')
-        .select<PostgrestList>('balance')
-        .is_('uid', uid);
+    final result =
+        await _supabaseClient.from('users').select('balance').eq('uid', uid);
 
     if (result.isNotEmpty) {
       return Result.success(result.first['balance']);
@@ -74,7 +66,7 @@ class SupabaseUserRepository implements UserRepository {
         .from('users')
         .update(newData)
         .eq('uid', user.uid)
-        .select<PostgrestList>();
+        .select();
 
     if (result.isNotEmpty) {
       return Result.success(User.fromJson(result.first));
@@ -92,7 +84,7 @@ class SupabaseUserRepository implements UserRepository {
         .from('users')
         .update({'balance': balance})
         .eq('uid', uid)
-        .select<PostgrestList>();
+        .select();
 
     if (result.isNotEmpty) {
       return Result.success(User.fromJson(result.first));

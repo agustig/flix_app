@@ -26,7 +26,7 @@ class SupabaseTransactionRepository implements TransactionRepository {
           final result = await _supabaseClient
               .from('transactions')
               .insert(transaction.toJson())
-              .select<PostgrestList>();
+              .select();
 
           if (result.isNotEmpty) {
             await SupabaseUserRepository().updateUserBalance(
@@ -52,10 +52,8 @@ class SupabaseTransactionRepository implements TransactionRepository {
   Future<Result<List<Transaction>>> getUserTransactions(
       {required String uid}) async {
     try {
-      final result = await _supabaseClient
-          .from('transactions')
-          .select<PostgrestList>()
-          .eq('uid', uid);
+      final result =
+          await _supabaseClient.from('transactions').select().eq('uid', uid);
       if (result.isNotEmpty) {
         return Result.success(
           result.map((e) => Transaction.fromJson(e)).toList(),
