@@ -41,6 +41,8 @@ class UserData extends _$UserData {
       case Success(value: final user):
         _getMovies();
         state = AsyncData(user);
+        refreshUserData();
+        ref.read(transactionDataProvider.notifier).refreshTransactionData();
       case Failed(:final message):
         state = AsyncError(FlutterError(message), StackTrace.current);
         state = const AsyncData(null);
@@ -67,6 +69,8 @@ class UserData extends _$UserData {
       case Success(value: final user):
         _getMovies();
         state = AsyncData(user);
+        refreshUserData();
+        ref.read(transactionDataProvider.notifier).refreshTransactionData();
       case Failed(:final message):
         state = AsyncError(FlutterError(message), StackTrace.current);
         state = const AsyncData(null);
