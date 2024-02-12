@@ -37,9 +37,9 @@ class _MainPageState extends ConsumerState<MainPage> {
               selectedPage = value;
             }),
             children: const [
-              Center(child: MoviePage()),
-              Center(child: TicketPage()),
-              Center(child: ProfilePage()),
+              MoviePage(),
+              TicketPage(),
+              ProfilePage(),
             ],
           ),
           BottomNavBar(
