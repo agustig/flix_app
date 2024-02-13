@@ -29,7 +29,6 @@ Widget _cardContent(WidgetRef ref) => Padding(
             ],
           ),
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GestureDetector(
                 onTap: () => ref.read(userDataProvider.notifier).topUp(20),

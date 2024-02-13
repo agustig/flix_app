@@ -3,8 +3,10 @@ import 'package:flix_app/data/firebase/firebase_transaction_repository.dart';
 import 'package:flix_app/data/firebase/firebase_user_repository.dart';
 import 'package:flix_app/data/repositories/auth_repository.dart';
 import 'package:flix_app/data/repositories/movie_repository.dart';
+import 'package:flix_app/data/repositories/payment_repository.dart';
 import 'package:flix_app/data/repositories/transaction_repository.dart';
 import 'package:flix_app/data/repositories/user_repository.dart';
+import 'package:flix_app/data/stripe/stripe_payment_repository.dart';
 import 'package:flix_app/data/supabase/supabase_auth_repository.dart';
 import 'package:flix_app/data/supabase/supabase_transaction_repository.dart';
 import 'package:flix_app/data/supabase/supabase_user_repository.dart';
@@ -29,6 +31,10 @@ AuthRepository authRepository(AuthRepositoryRef ref) {
 @riverpod
 MovieRepository movieRepository(MovieRepositoryRef ref) =>
     TmdbMovieRepository();
+
+@riverpod
+PaymentRepository paymentRepository(PaymentRepositoryRef ref) =>
+    StripePaymentRepository();
 
 @riverpod
 TransactionRepository transactionRepository(TransactionRepositoryRef ref) {
