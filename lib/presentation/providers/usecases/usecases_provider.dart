@@ -65,8 +65,10 @@ GetTransactions getTransactionsUsecase(GetTransactionsUsecaseRef ref) =>
         transactionRepository: ref.watch(transactionRepositoryProvider));
 
 @riverpod
-TopUp topUpUsecase(TopUpUsecaseRef ref) =>
-    TopUp(transactionRepository: ref.watch(transactionRepositoryProvider));
+TopUp topUpUsecase(TopUpUsecaseRef ref) => TopUp(
+      transactionRepository: ref.watch(transactionRepositoryProvider),
+      paymentRepository: ref.watch(paymentRepositoryProvider),
+    );
 
 // User Usecase
 @riverpod

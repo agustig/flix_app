@@ -12,4 +12,6 @@ abstract class Env {
   static const String supabaseUrl = _Env.supabaseUrl;
   @EnviedField(varName: 'SUPABASE_ANON_KEY', obfuscate: true)
   static final String supabaseAnonKey = _Env.supabaseAnonKey;
+  @EnviedField(varName: 'STRIPE_SECRET', obfuscate: true)
+  static final String stripeSecret = _Env.stripeSecret;
 }
