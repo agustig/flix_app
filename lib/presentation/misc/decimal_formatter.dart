@@ -49,7 +49,7 @@ class DecimalFormatter extends TextInputFormatter {
         newValue.text.length - newValue.selection.end;
 
     // String newString = NumberFormat("#,##0.##").format(newDouble);
-    final newString = newDouble.toUSDCurrencyFormat(
+    final newString = newDouble.toCurrencyFormat(
       symbol: '',
       decimalDigits: 0,
     );

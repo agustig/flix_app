@@ -91,18 +91,18 @@ class BookingConfirmationPage extends ConsumerWidget {
                 ),
                 transactionRow(
                   label: 'Ticket price',
-                  value: '${transaction.ticketPrice?.toUSDCurrencyFormat()}',
+                  value: '${transaction.ticketPrice?.toCurrencyFormat()}',
                   width: MediaQuery.sizeOf(context).width - 48,
                 ),
                 transactionRow(
                   label: 'Fees',
-                  value: transaction.adminFee.toUSDCurrencyFormat(),
+                  value: transaction.adminFee.toCurrencyFormat(),
                   width: MediaQuery.sizeOf(context).width - 48,
                 ),
                 const Divider(color: ghostWhite),
                 transactionRow(
                   label: 'Total',
-                  value: transaction.total.toUSDCurrencyFormat(),
+                  value: transaction.total.toCurrencyFormat(),
                   width: MediaQuery.sizeOf(context).width - 48,
                 ),
                 verticalSpaces(40),

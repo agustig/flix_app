@@ -59,7 +59,7 @@ class _TopUpPageState extends ConsumerState<TopUpPage> {
                       (double.parse(controller.text.currencyAmountExtractor()) +
                               double.parse(
                                   additionalAmount.currencyAmountExtractor()))
-                          .toUSDCurrencyFormat(symbol: '', decimalDigits: 0);
+                          .toCurrencyFormat(symbol: '', decimalDigits: 0);
                 });
               })
             ],

@@ -69,8 +69,8 @@ class TransactionCard extends StatelessWidget {
                   ),
                   Text(
                     transaction.title == 'Top Up'
-                        ? '+ ${(-transaction.total).toUSDCurrencyFormat()}'
-                        : transaction.total.toUSDCurrencyFormat(),
+                        ? '+ ${(-transaction.total).toCurrencyFormat()}'
+                        : transaction.total.toCurrencyFormat(),
                     style: TextStyle(
                       color: transaction.title == 'Top Up'
                           ? const Color.fromARGB(255, 107, 237, 90)

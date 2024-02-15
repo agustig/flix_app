@@ -17,7 +17,7 @@ Widget _cardContent(WidgetRef ref) => Padding(
               ),
               Text(
                 (ref.watch(userDataProvider).valueOrNull?.balance ?? 0)
-                    .toUSDCurrencyFormat(),
+                    .toCurrencyFormat(),
                 style: const TextStyle(
                   color: Color(0xFFEAA94E),
                   fontSize: 18,

@@ -56,9 +56,9 @@ Widget userInfo(WidgetRef ref) => Padding(
                     Text(
                       ref.watch(userDataProvider).when(
                             data: (user) =>
-                                (user?.balance ?? 0).toUSDCurrencyFormat(),
+                                (user?.balance ?? 0).toCurrencyFormat(),
                             error: (error, stackTrace) =>
-                                0.0.toUSDCurrencyFormat(),
+                                0.0.toCurrencyFormat(),
                             loading: () => 'Loading...',
                           ),
                       style: const TextStyle(fontWeight: FontWeight.bold),
