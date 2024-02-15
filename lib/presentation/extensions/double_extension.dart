@@ -1,7 +1,10 @@
 import 'package:intl/intl.dart';
 
 extension DoubleExtension on double {
-  String toUSDCurrencyFormat() =>
-      NumberFormat.currency(locale: 'en_US', symbol: 'USD ', decimalDigits: 2)
-          .format(this);
+  String toUSDCurrencyFormat({String? symbol, decimalDigits = 2}) =>
+      NumberFormat.currency(
+        locale: 'en_US',
+        symbol: symbol ?? 'USD ',
+        decimalDigits: decimalDigits,
+      ).format(this);
 }

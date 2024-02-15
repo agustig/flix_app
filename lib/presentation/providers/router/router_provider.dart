@@ -8,6 +8,7 @@ import 'package:flix_app/presentation/pages/main_page/main_page.dart';
 import 'package:flix_app/presentation/pages/register_page/register_page.dart';
 import 'package:flix_app/presentation/pages/seat_booking_page/seat_booking_page.dart';
 import 'package:flix_app/presentation/pages/time_booking_page/time_booking_page.dart';
+import 'package:flix_app/presentation/pages/top_up_page/top_up_page.dart';
 import 'package:flix_app/presentation/pages/wallet_page/wallet_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -61,6 +62,11 @@ Raw<GoRouter> router(RouterRef ref) => GoRouter(
           path: '/wallet',
           name: 'wallet',
           builder: (context, state) => const WalletPage(),
+        ),
+        GoRoute(
+          path: '/top-up',
+          name: 'top-up',
+          builder: (context, state) => const TopUpPage(),
         ),
       ],
       initialLocation: '/login',

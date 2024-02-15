@@ -31,8 +31,7 @@ Widget _cardContent(WidgetRef ref) => Padding(
           Column(
             children: [
               GestureDetector(
-                onTap: () => ref.read(userDataProvider.notifier).topUp(20),
-                // TODO: Add top up redirection to merchand
+                onTap: () => ref.read(routerProvider).pushNamed('top-up'),
                 child: Container(
                   width: 30,
                   height: 30,
