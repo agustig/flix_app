@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:793863881738:android:7e687f0f2260bf962ecbf3",
+        "mobilesdk_app_id": "1:793863881738:android:2cee6f1a32f7506d2ecbf3",
         "android_client_info": {
-          "package_name": "dev.agustig.flix_app"
+          "package_name": "dev.agustig.flixapp"
         }
       },
       "oauth_client": [],

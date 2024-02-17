@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCkIzUcvjItnR8ePunKRzE-A4qE6-tLVA0',
-    appId: '1:793863881738:android:7e687f0f2260bf962ecbf3',
+    appId: '1:793863881738:android:2cee6f1a32f7506d2ecbf3',
     messagingSenderId: '793863881738',
     projectId: 'flix-app-21b99',
     storageBucket: 'flix-app-21b99.appspot.com',
@@ -59,7 +59,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAtZ20rn9M-o8LflAnI3r2rkQ1hB1LhKjA',
-    appId: '1:793863881738:ios:045ca9f9c0ea20292ecbf3',
+    appId: '1:793863881738:ios:71c4707ca943e10f2ecbf3',
     messagingSenderId: '793863881738',
     projectId: 'flix-app-21b99',
     storageBucket: 'flix-app-21b99.appspot.com',

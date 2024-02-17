@@ -1,4 +1,4 @@
-package dev.agustig.flix_app
+package dev.agustig.flixapp
 
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.android.FlutterFragmentActivity
