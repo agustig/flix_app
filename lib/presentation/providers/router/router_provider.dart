@@ -1,7 +1,7 @@
 import 'package:flix_app/domain/entities/movie.dart';
 import 'package:flix_app/domain/entities/movie_detail.dart';
 import 'package:flix_app/domain/entities/transaction.dart';
-import 'package:flix_app/presentation/pages/booking_confirmation/booking_confirmation_page.dart';
+import 'package:flix_app/presentation/pages/booking_confirmation_page/booking_confirmation_page.dart';
 import 'package:flix_app/presentation/pages/detail_page/detail_page.dart';
 import 'package:flix_app/presentation/pages/login_page/login_page.dart';
 import 'package:flix_app/presentation/pages/main_page/main_page.dart';
