@@ -6,14 +6,21 @@ import 'package:flix_app/domain/entities/user.dart';
 
 class DummyUserRepository implements UserRepository {
   @override
-  Future<Result<User>> createUser(
-      {required String uid,
-      required String email,
-      required String name,
-      String? photoUrl,
-      double balance = 0}) {
-    // TODO: implement createUser
-    throw UnimplementedError();
+  Future<Result<User>> createUser({
+    required String uid,
+    required String email,
+    required String name,
+    String? photoUrl,
+    double balance = 0,
+  }) async {
+    await Future.delayed(const Duration(seconds: 1));
+    return Result.success(User(
+      uid: uid,
+      email: email,
+      name: name,
+      photoUrl: photoUrl,
+      balance: balance,
+    ));
   }
 
   @override
@@ -27,28 +34,37 @@ class DummyUserRepository implements UserRepository {
   }
 
   @override
-  Future<Result<double>> getUserBalance({required String uid}) {
-    // TODO: implement getUserBalance
-    throw UnimplementedError();
+  Future<Result<double>> getUserBalance({required String uid}) async {
+    await Future.delayed(const Duration(seconds: 1));
+    return const Result.success(0);
   }
 
   @override
-  Future<Result<User>> updateUser({required User user}) {
-    // TODO: implement updateUser
-    throw UnimplementedError();
+  Future<Result<User>> updateUser({required User user}) async {
+    await Future.delayed(const Duration(seconds: 1));
+    return Result.success(user);
   }
 
   @override
-  Future<Result<User>> updateUserBalance(
-      {required String uid, required double balance}) {
-    // TODO: implement updateUserBalance
-    throw UnimplementedError();
+  Future<Result<User>> updateUserBalance({
+    required String uid,
+    required double balance,
+  }) async {
+    await Future.delayed(const Duration(seconds: 1));
+    return Result.success(User(
+      uid: uid,
+      email: 'dummy@dummy.com',
+      name: 'dummy',
+      balance: balance,
+    ));
   }
 
   @override
-  Future<Result<User>> uploadProfilePicture(
-      {required User user, required File imageFile}) {
-    // TODO: implement uploadProfilePicture
-    throw UnimplementedError();
+  Future<Result<User>> uploadProfilePicture({
+    required User user,
+    required File imageFile,
+  }) async {
+    await Future.delayed(const Duration(seconds: 1));
+    return Result.success(user);
   }
 }
